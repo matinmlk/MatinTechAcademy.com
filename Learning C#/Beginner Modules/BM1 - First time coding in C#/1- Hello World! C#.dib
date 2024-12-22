@@ -1,0 +1,84 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### Hello World from C#!
+The .NET Interactive and output console provide a great experience that's perfect for this e-learning approach. The .NET interactive is located inside of these notebooks. The output console will be generated after execution.
+
+You can click on below box and enter this line of code and hit Play!
+
+```c#
+Console.WriteLine("Hello World!");
+```
+
+Now, lets write down our first code in C#!
+
+#!csharp
+
+Console.WriteLine("Hello World! Modify");
+
+#!markdown
+
+### What to do if you get an error message?
+
+Writing C# code is an exercise in precision. If you type just one character incorrectly, you'll get an error message in the output area when you run the code.
+
+For example, if you were to incorrectly enter the code line without a closed-pranteces:
+
+#!csharp
+
+Console.WriteLine("Hello World!";
+
+#!markdown
+
+Or entering it with lower-case console:
+
+#!csharp
+
+console.WriteLine("Hello World!");
+
+#!markdown
+
+The first part (1,1) indicates the line and column where the error occurred. But what does this error message mean?
+
+C# is a case-sensitive language, meaning that the C# compiler considers the words console and Console as different as the words cat and dog. Sometimes, the error message can be a bit misleading. You'll need to understand the true reason why the error exists, and that comes through learning more about C#'s syntax.
+
+Similarly, if you used single-quotation marks (') to surround the literal string Hello World! like so:
+
+#!csharp
+
+Console.WriteLine('Hello World!');
+
+#!markdown
+
+Again, in line 1, character 19 points to the culprit. You can use the message as a clue as you investigate the problem. But what does the error message mean? What exactly is a "character literal?" Later, you'll learn more about literals of various data types (including character literals). For now, be careful when you're entering code.
+
+#!markdown
+
+### ⚠️ Common Mistakes New Programmers Make
+
+1. **Capitalization Errors**:  
+   - Entering lower-case letters instead of capitalizing **C** in `Console`, or the letters **W** and **L** in `WriteLine`.  
+     _Example_:  
+     - Incorrect: `console.writeline("Hello World!");`  
+     - Correct: `Console.WriteLine("Hello World!");`
+
+2. **Punctuation Errors**:  
+   - Entering a comma instead of a period between `Console` and `WriteLine`.  
+     _Example_:  
+     - Incorrect: `Console,WriteLine("Hello World!");`  
+     - Correct: `Console.WriteLine("Hello World!");`
+
+3. **Quotation Mark Mistakes**:  
+   - Forgetting to use double-quotation marks, or using single-quotation marks to surround the phrase `"Hello World!"`.  
+     _Example_:  
+     - Incorrect: `Console.WriteLine('Hello World!');`  
+     - Correct: `Console.WriteLine("Hello World!");`
+
+4. **Missing Semicolon**:  
+   - Forgetting a semi-colon `;` at the end of the command.  
+     _Example_:  
+     - Incorrect: `Console.WriteLine("Hello World!")`  
+     - Correct: `Console.WriteLine("Hello World!");`

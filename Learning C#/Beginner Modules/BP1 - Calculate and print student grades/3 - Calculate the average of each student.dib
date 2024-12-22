@@ -1,0 +1,103 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### Calculate the average of the student's
+Since you know the number of scored assignments for each student, the average is calculated by dividing the sum of the assignment scores by the number of assignments. To store the averages, you'll be using the Decimal data type.
+
+### Create variables to store the average
+
+1. Bring the previous project codes into the C# .Net interactive and execute:
+
+#!csharp
+
+int currentAssignments = 5;
+
+int sophia1 = 93;
+int sophia2 = 87;
+int sophia3 = 98;
+int sophia4 = 95;
+int sophia5 = 100;
+
+int nicolas1 = 80;
+int nicolas2 = 83;
+int nicolas3 = 82;
+int nicolas4 = 88;
+int nicolas5 = 85;
+
+int zahirah1 = 84;
+int zahirah2 = 96;
+int zahirah3 = 73;
+int zahirah4 = 85;
+int zahirah5 = 79;
+
+int jeong1 = 90;
+int jeong2 = 92;
+int jeong3 = 98;
+int jeong4 = 100;
+int jeong5 = 97;
+
+int sophiaSum = sophia1 + sophia2 + sophia3 + sophia4 + sophia5;
+int nicolasSum = nicolas1 + nicolas2 + nicolas3 + nicolas4 + nicolas5;
+int zahirahSum = zahirah1 + zahirah2 + zahirah3 + zahirah4 + zahirah5;
+int jeongSum = jeong1 + jeong2 + jeong3 + jeong4 + jeong5;
+
+#!markdown
+
+3. To declare the Decimal variables that will be used for the students current scores, enter the following code:
+
+#!csharp
+
+decimal sophiaScore;
+decimal nicolasScore;
+decimal zahirahScore;
+decimal jeongScore;
+
+#!markdown
+
+4. Notice that you're only declaring the decimal variables and not initializing them. You chose the decimal type because you were representing an average grade and want to include a decimal place that wouldn't be available if you used an integer. This way, you can see if a student made a score of 89.9 and bump them up from a B to an A.
+
+In the previous exercise, you initialized the integer variables so that you could immediately use them in your console output. In this case, these decimal variables will be initialized in the next step using calculations with your existing data, starting with Sophia's score.
+
+#!csharp
+
+sophiaScore = sophiaSum / currentAssignments;
+
+#!markdown
+
+To calculate a student's current score for the class, you divide the sum of assignment scores by the total number of assignments. Each student in the class has five assignments, represented by currentAssignments that you initialized during setup.
+
+
+
+5. To display each student's current score, replace the sum variables in the display statements with the score variables:
+
+#!csharp
+
+sophiaScore = sophiaSum / currentAssignments;
+nicolasScore = nicolasSum / currentAssignments;
+zahirahScore = zahirahSum / currentAssignments;
+jeongScore = jeongSum / currentAssignments;
+
+Console.WriteLine("Sophia: " + sophiaScore);
+Console.WriteLine("Nicolas: " + nicolasScore);
+Console.WriteLine("Zahirah: " + zahirahScore);
+Console.WriteLine("Jeong: " + jeongScore);
+
+#!markdown
+
+6. In your division operations, to cast an integer variable as a decimal, update your code as follows:
+
+#!csharp
+
+decimal sophiaScore = (decimal) sophiaSum / currentAssignments;
+decimal nicolasScore = (decimal) nicolasSum / currentAssignments;
+decimal zahirahScore = (decimal) zahirahSum / currentAssignments;
+decimal jeongScore = (decimal) jeongSum / currentAssignments;
+
+
+Console.WriteLine("Sophia: " + sophiaScore + " A");
+Console.WriteLine("Nicolas: " + nicolasScore + " B");
+Console.WriteLine("Zahirah: " + zahirahScore + " B");
+Console.WriteLine("Jeong: " + jeongScore + " A");

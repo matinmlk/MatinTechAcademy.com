@@ -1,0 +1,29 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+How can we write a message like this and keep the literals like "Bob", 3 or 34.4 dynamic?
+
+Hello, `Bob`! You have `3` messages in your inbox. The temperature is `34.4` celsius.
+
+Let's try:
+
+#!csharp
+
+string name = "Bob";
+int messages = 3;
+decimal temperature = 34.4m;
+
+Console.Write("Hello, ");
+Console.Write(name);
+Console.Write("! You have ");
+Console.Write(messages);
+Console.Write(" messages in your inbox. The temperature is ");
+Console.Write(temperature);
+Console.Write(" celsius.");
+
+#!markdown
+
+Are you able to write the above code more efficient?

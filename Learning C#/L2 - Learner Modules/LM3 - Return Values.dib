@@ -1,0 +1,136 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# C# Return Values and Input Parameters
+
+## Overview
+In C#, methods can return values and accept input parameters. Understanding how to work with these is key to writing functional and reusable code.
+
+### Objectives:
+- Write code that calls methods from the .NET Class Library.
+- Understand how to work with return values and parameters in methods.
+- Learn to create instance methods that maintain state.
+
+---
+
+## Methods with Return Values
+
+A method can return a value using the `return` keyword, followed by the value to return. The return type is defined in the method signature.
+
+### Example:
+
+#!csharp
+
+public int AddNumbers(int a, int b)
+{
+    return a + b;
+}
+
+int result = AddNumbers(3, 4);
+Console.WriteLine(result);  // Output: 7
+
+#!markdown
+
+In this example:
+- `AddNumbers` method returns an `int`.
+- The return value is the sum of two numbers passed as parameters.
+
+---
+
+## Input Parameters
+
+Parameters allow methods to receive input values. These can be value types or reference types. There are two primary ways of passing parameters:
+1. **Pass-by-value**: A copy of the value is passed to the method.
+2. **Pass-by-reference**: The method receives a reference to the original value, allowing changes to the original variable.
+
+### Example of Pass-by-value:
+
+#!csharp
+
+public void PrintMessage(string message)
+{
+    Console.WriteLine(message);
+}
+
+PrintMessage("Hello, World!");  // Output: Hello, World!
+
+#!markdown
+
+### Example of Pass-by-reference:
+
+#!csharp
+
+public void Increase(ref int number)
+{
+    number += 10;
+}
+
+int myNumber = 5;
+Increase(ref myNumber);
+Console.WriteLine(myNumber);  // Output: 15
+
+#!markdown
+
+---
+
+## Optional Parameters and Named Arguments
+
+C# allows for optional parameters, where default values are provided if no arguments are passed. Named arguments let you specify the parameter name when calling the method.
+
+### Example:
+
+#!csharp
+
+public void DisplayInfo(string name, int age = 30)
+{
+    Console.WriteLine($"Name: {name}, Age: {age}");
+}
+
+DisplayInfo("John");  // Output: Name: John, Age: 30
+DisplayInfo("Jane", 25);  // Output: Name: Jane, Age: 25
+
+#!markdown
+
+---
+
+## Using the .NET Class Library
+
+.NET provides a rich class library with methods that return values and accept parameters. For example, the `Random.Next()` method returns a random number. Some methods require creating an instance of the class, while others do not.
+
+### Example:
+
+#!csharp
+
+Random random = new Random();
+int randomNumber = random.Next(1, 100);
+Console.WriteLine(randomNumber);
+
+#!markdown
+
+In this example:
+- `Next()` is a method that returns a random integer between 1 and 100.
+
+---
+
+## IntelliSense for Method Overloads
+
+Many methods have **overloaded versions**, meaning there are multiple ways to call the same method with different parameters. IntelliSense in Visual Studio helps you explore these overloads.
+
+For example, `Console.WriteLine()` can accept various data types, such as `string`, `int`, or even custom objects.
+
+---
+
+## Summary
+
+- **Return values**: Methods can return values of any type.
+- **Input parameters**: Methods can accept both value and reference types as input.
+- **Optional parameters**: Provide default values when calling methods.
+- **Named arguments**: Specify parameter names when calling methods.
+- Use the **.NET Class Library** to call methods and explore available overloads with IntelliSense.
+
+---
+
+For more details, visit the full module on [Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/csharp-call-methods/4-return-values-input-parameters).

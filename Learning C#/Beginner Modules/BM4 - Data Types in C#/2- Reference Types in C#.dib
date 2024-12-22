@@ -1,0 +1,55 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# Reference types in C#
+
+Reference types include arrays, classes, and strings. Reference types are treated differently from value types regarding the way values are stored when the application is executing.
+
+A value type variable stores its values directly in an area of storage called the stack. The stack is memory allocated to the code that is currently running on the CPU (also known as the stack frame, or activation frame). When the stack frame has finished executing, the values in the stack are removed.
+
+A reference type variable stores its values in a separate memory region called the heap. The heap is a memory area that is shared across many applications running on the operating system at the same time. The .NET Runtime communicates with the operating system to determine what memory addresses are available, and requests an address where it can store the value. The .NET Runtime stores the value, and then returns the memory address to the variable. When your code uses the variable, the .NET Runtime seamlessly looks up the address stored in the variable, and retrieves the value that's stored there.
+
+#!csharp
+
+int[] data;
+
+int[] data1;
+data1 = new int[3];
+
+int[] data2 = new int[3];
+
+#!markdown
+
+The string data type is also a reference type. You might be wondering why a new operator wasn't used when declaring a string. This is purely a convenience afforded by the designers of C#. Because the string data type is used so frequently, you can use this format:
+
+#!csharp
+
+string shortenedString = "Hello World!";
+Console.WriteLine(shortenedString);
+
+#!markdown
+
+**Concerns in using value and reference types:**
+
+#!csharp
+
+int val_A = 2;
+int val_B = val_A;
+val_B = 5;
+
+Console.WriteLine("--Value Types--");
+Console.WriteLine($"val_A: {val_A}");
+Console.WriteLine($"val_B: {val_B}");
+
+
+int[] ref_A= new int[1];
+ref_A[0] = 2;
+int[] ref_B = ref_A;
+ref_B[0] = 5;
+
+Console.WriteLine("--Reference Types--");
+Console.WriteLine($"ref_A[0]: {ref_A[0]}");
+Console.WriteLine($"ref_B[0]: {ref_B[0]}");

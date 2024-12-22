@@ -1,0 +1,86 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# C# Methods Challenge
+
+## Overview
+In this challenge, you'll practice calling methods from the .NET Class Library, understanding how to use methods that return values and accept input parameters.
+
+### Objectives:
+- Use .NET Class Library methods that are both stateless and stateful.
+- Understand how to use overloaded methods and manage input and return values effectively.
+- Use IntelliSense to explore method information, including return types and parameter options.
+
+---
+
+## Challenge Instructions
+
+You will implement the following tasks to complete this challenge:
+
+### Task 1: Call a Stateless Method
+Use a stateless method from the .NET Class Library, such as `Console.WriteLine()`. Explore the various overloads of this method using IntelliSense to display different data types.
+
+### Example:
+
+#!csharp
+
+Console.WriteLine("Hello, World!");
+Console.WriteLine(123);
+Console.WriteLine(12.34);
+
+#!markdown
+
+### Task 2: Call a Stateful Method
+Create a new instance of a class from the .NET Class Library and call a stateful method. For instance, use the `Random` class to generate random numbers.
+
+### Example:
+
+#!csharp
+
+Random random = new Random();
+int randomNumber = random.Next(1, 100);
+Console.WriteLine(randomNumber);
+
+#!markdown
+
+### Task 3: Use a Method with Input Parameters and Return Values
+Write a method that takes input parameters and returns a value, such as a method that calculates the sum of two integers.
+
+### Example:
+
+#!csharp
+
+public int AddNumbers(int a, int b)
+{
+    return a + b;
+}
+
+int result = AddNumbers(10, 20);
+Console.WriteLine(result);
+
+#!markdown
+
+### Task 4: Explore Method Overloads
+Use IntelliSense to find and call various overloaded versions of a method, such as `Console.WriteLine()` or `Math.Max()`.
+
+### Example:
+
+#!csharp
+
+int max = Math.Max(10, 20);
+double maxDouble = Math.Max(12.5, 10.8);
+Console.WriteLine(max);
+Console.WriteLine(maxDouble);
+
+#!markdown
+
+---
+
+## Summary
+
+This challenge allows you to practice calling methods with and without parameters, understanding return values, and working with method overloads. Use IntelliSense to explore method details and improve your understanding of available .NET Class Library methods.
+
+For more information and the full exercise, visit [Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/csharp-call-methods/5-challenge).

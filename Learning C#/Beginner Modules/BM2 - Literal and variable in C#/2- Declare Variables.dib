@@ -1,0 +1,145 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### What is a variable?
+
+A variable is a container for storing a type of value. Variables are important because their values can change, or vary, throughout the execution of a program. Variables can be assigned, read, and changed. You use variables to store values that you intend to use in your code.
+
+A variable name is a human-friendly label that the compiler assigns to a memory address. When you want to store or change a value in that memory address, or whenever you want to retrieve the stored value, you just use the variable name you created.
+
+### Declare a variable
+
+To create a new variable, you must first declare the data type of the variable, and then give it a name.
+
+#!csharp
+
+string firstName;
+
+#!markdown
+
+In this case, you're creating a new variable of type string called firstName. From now on, this variable can only hold string values.
+
+You can choose any name as long as it adheres to a few C# syntax rules for naming variables.
+
+#!markdown
+
+### 🔑 Variable Name Rules and Conventions
+
+Naming variables is crucial for writing readable and maintainable code. Here are the key rules and conventions:
+
+### 📜 Syntax Rules
+- **Allowed Characters**: Use alphanumeric characters and underscores (`_`). Special symbols like `#` or `$` are not allowed.
+- **Start of Variable Names**: Must begin with a letter or underscore, not a number.
+- **Case Sensitivity**: Variable names are case-sensitive (`Value` and `value` are different variables).
+- **Keywords**: Variable names cannot be C# keywords (e.g., `decimal decimal;` is invalid).
+
+### 📏 Naming Conventions
+- **Camel Case**: Use camel case for variable names (e.g., `thisIsCamelCase`).
+- **Avoid Underscores**: Do not start variable names with underscores, unless necessary.
+- **Descriptive Names**: Choose meaningful names that describe the variable’s purpose.
+- **Avoid Abbreviations**: Use full words for clarity; avoid contractions or abbreviations.
+- **No Data Type in Name**: Do not include the data type in the variable name (e.g., avoid `strValue`).
+
+#### Example:
+```csharp
+string firstName;  // follows all naming rules and conventions
+```
+
+By following these rules, you ensure that your code remains clean, readable, and easier to maintain.
+
+#!csharp
+
+char userOption;
+
+int gameScore;
+
+decimal particlesPerMillion;
+
+bool processedCustomer;
+
+#!markdown
+
+### Create your first variable
+
+To declare a variable, you enter the data type you want to use followed by a name for the variable. To assign a value to a variable, you use the assignment operator, which is a single equals character =.
+
+#!csharp
+
+string firstName;
+firstName = "Bob";
+
+#!markdown
+
+Improperly assign a value to a variable
+It's important to notice that assignment happens from right to left. In other words, the C# compiler must first understand the value on the right side of the assignment operator, then it can perform the assignment to the variable on the left side of the assignment operator. If you reverse the order, you'll confuse the C# compiler.
+
+Modify the code you wrote to match the following code:
+
+#!csharp
+
+string firstName;
+"Bob" = firstName;
+
+#!markdown
+
+> (2,1): error CS0131: The left-hand side of an assignment must be a variable, property or indexer
+
+### Improperly assign a value of the incorrect data type to the variable
+
+You learned that C# was designed to enforce types. When you're working with variables, enforcing types means you can't assign a value of one data type to a variable declared to hold a different data type.
+
+#!csharp
+
+int firstName;
+firstName = "Bob";
+
+#!markdown
+
+> (2,9): error CS0029: Cannot implicitly convert type 'string' to 'int'
+
+The error message hints at what the C# compiler tries to do behind the scenes. It tried to "implicitly convert" the string "Bob" to be an int value; however, that is impossible. Even so, C# tried to do the conversion but fails since there's no numeric equivalent for the word "Bob".
+
+#!markdown
+
+### Retrieve a value you stored in the variable
+
+Retrieving a value from a variable is also referred to as "getting the variable", or simply, a "get" operation.
+
+#!csharp
+
+string firstName;
+firstName = "Bob";
+Console.WriteLine(firstName);
+
+#!markdown
+
+You can reuse and reassign the variable as many times as you want. This example illustrates that idea.
+
+#!csharp
+
+string firstName;
+firstName = "Bob";
+Console.WriteLine(firstName);
+firstName = "Liem";
+Console.WriteLine(firstName);
+firstName = "Isabella";
+Console.WriteLine(firstName);
+firstName = "Yasmin";
+Console.WriteLine(firstName);
+
+#!markdown
+
+### Initialize the variable
+
+You must set a variable to a value before you can get the value from the variable. Otherwise, you'll see an error.
+
+#!csharp
+
+string firstNameNoInit;
+Console.WriteLine(firstNameNoInit);
+
+string firstNameInit = "Bob";
+Console.WriteLine(firstNameInit);

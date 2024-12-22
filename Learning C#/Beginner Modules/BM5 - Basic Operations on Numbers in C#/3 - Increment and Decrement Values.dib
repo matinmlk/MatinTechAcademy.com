@@ -1,0 +1,96 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### Increment and decrement
+Frequently, you'll need to increment and/or decrement values, especially when you're writing looping logic or code that interacts with a data structure.
+
+The += operator adds and assigns the value on the right of the operator to the value on the left of the operator. So, lines two and three in the following code snippet are the same:
+
+#!csharp
+
+int value = 0;     // value is now 0.
+value = value + 5; // value is now 5.
+value += 5;        // value is now 10.
+
+#!markdown
+
+The ++ operator increments the value of the variable by 1. So, lines two and three in the following code snippet are the same:
+
+#!csharp
+
+int value = 0;     // value is now 0.
+value = value + 1; // value is now 1.
+value++;           // value is now 2.
+
+#!markdown
+
+### Write code to increment and decrement a value
+
+#!csharp
+
+int value = 1;
+
+value = value + 1;
+Console.WriteLine("First increment: " + value);
+
+value += 1;
+Console.WriteLine("Second increment: " + value);
+
+value++;
+Console.WriteLine("Third increment: " + value);
+
+value = value - 1;
+Console.WriteLine("First decrement: " + value);
+
+value -= 1;
+Console.WriteLine("Second decrement: " + value);
+
+value--;
+Console.WriteLine("Third decrement: " + value);
+
+#!markdown
+
+### Position the increment and decrement operators
+
+Both the increment and decrement operators have an interesting quality — depending on their position, they perform their operation before or after they retrieve their value. In other words, if you use the operator before the value as in ++value, then the increment will happen before the value is retrieved. Likewise, value++ will increment the value after the value has been retrieved.
+
+#!csharp
+
+int value = 1;
+value++;
+Console.WriteLine("First: " + value);
+Console.WriteLine($"Second: {value++}");
+Console.WriteLine("Third: " + value);
+Console.WriteLine("Fourth: " + (++value));
+
+#!markdown
+
+There's two steps to this line:
+
+Retrieve the current value of the variable value and use that in the string interpolation operation.
+Increment the value.
+
+#!csharp
+
+Console.WriteLine("Third: " + value);
+
+#!markdown
+
+In contrast, consider the last line of code:
+
+#!csharp
+
+Console.WriteLine("Fourth: " + (++value));
+
+#!markdown
+
+Here, the order of operations is switched because the ++ operator is placed before the operand value.
+
+Increment the value.
+Retrieve the new incremented value of the variable value and use that in the string operation.
+
+Use compound assignment operators like +=, -=, *=, ++, and -- to perform a mathematical operation like increment or decrement, then assign the result into the original variable.
+Increment and decrement operators perform differently depending on whether the operator is before or after the operand.

@@ -1,0 +1,42 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+Let's add two // at the beginning of the Code line we added in previous lecture:
+
+#!csharp
+
+// Console.WriteLine("Hello World!");
+
+#!markdown
+
+You can create a code comment by prefixing a line of code with two forward slashes //. This prefix instructs the compiler to ignore all the instructions on that line.
+
+You can also use code comments to add messages to yourself or others who may later read the code, reminding you of what the code is doing.
+
+Let's take a look at below code example, instead of Console.WriteLine try using Console.Write and see the difference:
+
+#!csharp
+
+Console.Write("Congratulations!");
+Console.Write(" ");
+Console.Write("You wrote your first lines of code.");
+
+#!markdown
+
+## The difference between Console.Write and Console.WriteLine
+
+The three new lines of code you added demonstrated the difference between the Console.WriteLine() and Console.Write methods.
+
+Console.WriteLine() prints a message to the output console. At the end of the line, it adds a line feed similar to pressing Enter or Return to create a new line.
+
+To print to the output console, but without adding a line feed at the end, you use the second technique, Console.Write(). So, the next call to Console.Write() prints another message to the same line.
+
+Update your code to match the following code snippet:
+
+#!csharp
+
+Console.WriteLine("Congratulations!");
+Console.Write("You wrote your first lines of code.");

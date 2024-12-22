@@ -1,0 +1,64 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### What are implicitly typed local variables?
+
+An implicitly typed local variable is created by using the var keyword followed by a variable initialization. 
+
+In this example, a string variable was created using the var keyword instead of the string keyword.
+
+The var keyword tells the C# compiler that the data type is implied by the assigned value. After the type is implied, the variable acts the same as if the actual data type had been used to declare it. The var keyword is used to save on keystrokes when types are lengthy or when the type is obvious from the context.
+
+For example:
+
+#!csharp
+
+var message = "Hello world!";
+
+#!markdown
+
+Because the variable message is immediately set to the string value "Hello World!", the C# compiler understands the intent and treats every instance of message as an instance of type string.
+
+Other programming languages use the var keyword differently. In C#, variables are assigned a type by the compiler regardless of whether you use the actual data type name or allow the compiler to imply the data type. In other words, the type is locked in at the time of declaration and therefore will never be able to hold values of a different data type.
+
+#!csharp
+
+var message = "Hello World!";
+message = 10.703m;
+
+#!markdown
+
+> (2,11): error CS0029: Cannot implicitly convert type 'decimal' to 'string'
+
+#!markdown
+
+### Variables using the var keyword must be initialized
+
+It's important to understand that the var keyword is dependent on the value you use to initialize the variable. If you try to use the var keyword without initializing the variable, you'll receive an error when you attempt to compile your code.
+
+#!csharp
+
+var message;
+
+#!markdown
+
+> (1,5): error CS0818: Implicitly-typed variables must be initialized
+
+#!markdown
+
+### 🔍 Why Use the `var` Keyword?
+
+The `var` keyword is widely adopted in the C# community, and you'll often see it in code examples. Here’s why it’s important:
+
+### 📝 Key Points:
+- **Simplicity**: When the type of a variable is obvious from its initialization, using `var` simplifies your code.
+- **Dynamic Development**: `var` is helpful when planning or prototyping, allowing flexibility when you may not initially know the exact data type.
+  
+### 🔄 When to Use:
+- Use `var` for more **concise code** when the data type is clear from context.
+- As a beginner, it’s recommended to use **explicit data types** in variable declarations until you’re comfortable with C# and understand the underlying types.
+
+By understanding when to use `var`, you can write more dynamic and readable code while maintaining clarity.

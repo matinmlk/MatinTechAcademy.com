@@ -1,0 +1,93 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### Use character literals
+
+If you only wanted a single alphanumeric character printed to screen, you could create a char literal by surrounding one alphanumeric character in single quotes. The term char is short for character. In C#, this data type is officially named "char", but frequently referred to as a "character".
+
+#!csharp
+
+Console.WriteLine('b');
+
+#!markdown
+
+If you enter the following code:
+
+#!csharp
+
+Console.WriteLine('Hello World!');
+
+#!markdown
+
+Notice the single quotation marks surrounding Hello World!. When you use single quotation marks, the C# compiler expects a single character. However, in this case, the character literal syntax was used, but 12 characters were supplied instead!
+
+#!markdown
+
+### Use integer literals
+
+If you want to display a numeric whole number (no fractions) value in the output console, you can use an int literal. The term int is short for integer, which you may recognize from studying math. In C#, this data type is officially named "int", but frequently referred to as "integer". An int literal requires no other operators like the string or char.
+
+Add the following line of code in the code editor:
+
+#!csharp
+
+Console.WriteLine(123);
+
+#!markdown
+
+### Use floating-point literals
+
+A floating-point number is a number that contains a decimal, for example 3.14159. C# supports three data types to represent decimal numbers: float, double, and decimal. Each type supports varying degrees of precision.
+
+#!csharp
+
+Console.WriteLine(0.25F);
+
+#!markdown
+
+To create a double literal, just enter a decimal number. The compiler defaults to a double literal when a decimal number is entered without a literal suffix.
+
+Press the green Run button to run your code. You should see the following result in the output window:
+
+#!csharp
+
+Console.WriteLine(2.625);
+
+#!markdown
+
+To create a decimal literal, append the letter m after the number. In this context, the m is called a literal suffix. The literal suffix tells the compiler you wish to work with a value of decimal type. You can use either a lower-case m or upper-case M as the literal suffix for a decimal.
+
+#!csharp
+
+Console.WriteLine(12.39816m);
+
+#!markdown
+
+The term bool is short for Boolean. In C#, they're officially referred to as "bool", but often developers use the term "Boolean".
+
+#!csharp
+
+Console.WriteLine(true);
+Console.WriteLine(false);
+
+#!markdown
+
+### 📊 Data Types Define Capabilities
+
+Data types specify the **operations** and **values** you can work with in your code.  
+For example:
+
+- Use **int** or **decimal** for **numerical operations**.
+- Use **string** or **char** for **presentation** or **text manipulation**.
+
+#### 📞 Example: Phone Numbers and Postal Codes
+Although these consist of **numeric characters**, they are primarily for presentation and rarely undergo calculations. Thus, **strings** are the preferred data type for **phone numbers** and **postal codes**.
+
+#### ✔️ Booleans (bool) vs. Strings
+- Use **bool** when working with the **concept** of `true` or `false` for evaluations.  
+- Use **string** when working with the **words** "true" or "false" as text.
+
+It's essential to recognize that even though values may **look similar** to string literals, their **purpose** dictates their proper data type.

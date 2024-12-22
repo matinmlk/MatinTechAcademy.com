@@ -1,0 +1,77 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!markdown
+
+# Numeric Types in C#
+
+#!markdown
+
+With many data types available in C#, choosing the right one to use means that you need to understand when you might choose one data type over another.
+
+In software development, data is essentially a value that is stored in the computer's memory as a series of bits. A bit is a simple binary switch represented as a 0 or 1, or rather, "off" and "on." A single bit doesn't seem useful, however when you combine 8 bits together in a sequence, they form a byte. When used in a byte, each bit takes on a meaning in the sequence. In fact, you can represent 256 different combinations with just 8 bits if you use a binary (base-2) numeral system.
+
+![alt text](https://ars.els-cdn.com/content/image/3-s2.0-B9780128033401000045-f04-08-9780128033401.jpg)
+
+#!markdown
+
+**Simple value types**
+
+Simple value types are a set of predefined types provided by C# as keywords. These keywords are aliases (a nickname) for predefined types defined in the .NET Class Library. For example, the C# keyword int is an alias of a value type defined in the .NET Class Library as System.Int32.
+
+Simple value types include many of the data types that you may have used already like char and bool. There are also many integral and floating-point value types to represent a wide range of whole and fractional numbers.
+
+#!markdown
+
+**Integral Types**
+
+An integral type is a simple value type that represents whole numbers with no fraction (such as -1, 0, 1, 2, 3). The most popular in this category is the int data type. 
+There are two subcategories of integral types: signed and unsigned integral types.
+
+A signed type uses its bytes to represent an equal number of positive and negative numbers. The following exercise gives you exposure to the signed integral types in C#.
+
+#!csharp
+
+Console.WriteLine("Signed integral types:");
+
+Console.WriteLine($"sbyte  : {sbyte.MinValue} to {sbyte.MaxValue}");
+Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue}");
+Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue}");
+Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue}");
+
+#!markdown
+
+**Unsigned integral types**
+
+An unsigned type uses its bytes to represent only positive numbers. The remainder of the exercise introduces the unsigned integral types in C#.
+
+#!csharp
+
+Console.WriteLine("");
+Console.WriteLine("Unsigned integral types:");
+
+Console.WriteLine($"byte   : {byte.MinValue} to {byte.MaxValue}");
+Console.WriteLine($"ushort : {ushort.MinValue} to {ushort.MaxValue}");
+Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
+Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
+
+#!markdown
+
+**floating-point types**
+
+First, you must consider the digits of precision each type allows. Precision is the number of value places stored after the decimal point.
+
+Second, you must consider the manner in which the values are stored and the impact on the accuracy of the value. For example, float and double values are stored internally in a binary (base 2) format, while decimal is stored in a decimal (base 10) format. Why does this matter?
+
+Performing math on binary floating-point values can produce results that may surprise you if you're used to decimal (base 10) math. Often, binary floating-point math is an approximation of the real value. Therefore, float and double are useful because large numbers can be stored using a small memory footprint. However, float and double should only be used when an approximation is useful. For example, being a few thousandths off when calculating the splatter of a snowball in a video game is close enough.
+
+When you need more a more precise answer, you should use decimal. Each value of type decimal has a relatively large memory footprint, however performing math operations gives you a more precise result. So, you should use decimal when working with financial data or any scenario where you need an accurate result from a calculation.
+
+#!csharp
+
+Console.WriteLine("");
+Console.WriteLine("Floating point types:");
+Console.WriteLine($"float  : {float.MinValue} to {float.MaxValue} (with ~6-9 digits of precision)");
+Console.WriteLine($"double : {double.MinValue} to {double.MaxValue} (with ~15-17 digits of precision)");
+Console.WriteLine($"decimal: {decimal.MinValue} to {decimal.MaxValue} (with 28-29 digits of precision)");

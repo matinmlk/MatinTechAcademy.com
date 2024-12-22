@@ -1,0 +1,48 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### 💻 What is a Programming Language?
+
+Programming languages, like C#, allow humans to write instructions for computers to execute. While each language has unique syntax, many share common concepts. These instructions, written in a human-readable way, are called **source code** or simply **code**.
+
+### 🛠 What is Compilation?
+
+**Compilation** is the process of converting source code into a format the computer's CPU can understand. A **compiler** translates human-readable instructions into computer-executable ones. When you run code, it is first compiled before being executed.
+
+### ✍️ What is Syntax?
+
+**Syntax** refers to the rules for writing code. Just like grammar in human languages, programming languages follow specific rules for structure. In C#, this includes keywords, operators, and how they are used together. Tools like **syntax highlighting** help spot mistakes by changing the color of keywords and symbols in your code.
+
+#!markdown
+
+## How did your code work?
+
+Let's focus on the following line of code you wrote:
+
+```C#
+Console.WriteLine("Hello World!");
+```
+
+
+### 📘 C# Code Breakdown: Hello World Example
+
+1. **Literal String**:  
+   - The phrase `"Hello World!"` in the code is called a **literal string** because it directly represents the characters you want to send to the output.
+
+2. **Console Class**:  
+   - The `Console` part of the code is a **class**. Classes can be thought of as blueprints or containers for methods. Here, all methods for interacting with the output console belong to the `Console` class.
+
+3. **Member Access Operator**:  
+   - The **dot (period)** `.` between `Console` and `WriteLine()` is the **member access operator**. It helps navigate from a class (`Console`) to one of its methods (`WriteLine`).
+
+4. **WriteLine Method**:  
+   - The `WriteLine()` is a **method**. Methods are recognized by the parentheses `()` after their names. The job of the `WriteLine()` method is to send a line of data to the output console. Data is passed inside the parentheses, called an **input parameter**.
+
+5. **Method Invocation Operator**:  
+   - The parentheses `()` following `WriteLine` are known as the **method invocation operator**. They are required whenever you call (or invoke) a method.
+
+6. **End of Statement Operator**:  
+   - The **semicolon** `;` marks the end of a complete instruction (or statement) in C#. It tells the compiler that the command is finished.

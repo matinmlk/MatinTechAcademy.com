@@ -1,0 +1,83 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### Store the numeric grade values for each course
+
+You need to have completed the Setup instructions in the previous unit, Prepare, before you begin this Exercise.
+
+#!csharp
+
+string studentName = "Sophia Johnson";
+string course1Name = "English 101";
+string course2Name = "Algebra 101";
+string course3Name = "Biology 101";
+string course4Name = "Computer Science I";
+string course5Name = "Psychology 101";
+
+int course1Credit = 3;
+int course2Credit = 3;
+int course3Credit = 4;
+int course4Credit = 4;
+int course5Credit = 3;
+
+#!markdown
+
+Review the following letter grade numeric equivalent values A = 4 grade points B = 3 grade points
+
+#!csharp
+
+int gradeA = 4;
+int gradeB = 3;
+
+#!markdown
+
+Notice fixed values are used to represent the numeric grades. This technique helps make your code easy to understand and help to prevent typos if you need to enter different grades repeatedly. Values for grades C, D, and F are omitted for now since they're unused.
+
+#!csharp
+
+int course1Grade = gradeA;
+int course2Grade = gradeB;
+int course3Grade = gradeB;
+int course4Grade = gradeB;
+int course5Grade = gradeA;
+
+#!markdown
+
+To display the course names along with the numeric grade, enter the following code:
+
+#!csharp
+
+Console.WriteLine($"{course1Name} {course1Grade}");
+Console.WriteLine($"{course2Name} {course2Grade}");
+Console.WriteLine($"{course3Name} {course3Grade}");
+Console.WriteLine($"{course4Name} {course4Grade}");
+Console.WriteLine($"{course5Name} {course5Grade}");
+
+#!markdown
+
+To add the credit hours for each class to the print statements, update your code as follows:
+
+#!csharp
+
+Console.WriteLine($"{course1Name} {course1Grade} {course1Credit}");
+Console.WriteLine($"{course2Name} {course2Grade} {course2Credit}");
+Console.WriteLine($"{course3Name} {course3Grade} {course3Credit}");
+Console.WriteLine($"{course4Name} {course4Grade} {course4Credit}");
+Console.WriteLine($"{course5Name} {course5Grade} {course5Credit}");
+
+#!markdown
+
+### Check your work
+
+Review your output and verify that the course names, grades, and credit hours are all correct:
+
+```console
+English 101 4 3
+Algebra 101 3 3
+Biology 101 3 4
+Computer Science I 3 4
+Psychology 101 4 3
+```

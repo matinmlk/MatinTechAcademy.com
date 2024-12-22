@@ -1,0 +1,92 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+## Stateful vs. Stateless Methods
+
+In software development, **state** refers to the current condition of an application's execution environment, including all values stored in memory at any given time.
+
+### Stateless Methods
+- **Stateless methods** (also known as static methods) do not rely on or modify the current state of the application.
+- They function independently without referencing or altering stored values.
+- **Example:** `Console.WriteLine()` outputs a message without affecting the state of the application.
+
+### Stateful Methods
+- **Stateful methods** (also known as instance methods) depend on or modify the application's state.
+- They either rely on values already stored in memory or update those values during execution.
+- **Example:** Instance methods keep track of state in class fields, where each class instance has its own set of these fields.
+
+A class can contain both stateful and stateless methods. To use stateful methods, you need to create an instance of the class so the method can access or modify its state.
+
+
+### Creating an instance of a 
+
+An instance of a class is called an `object`. To create a new instance of a class, you use the `new` operator. Consider the following line of code that creates a new instance of the `Random` class to create a new object called `dice`:
+
+#!csharp
+
+Random dice = new Random();
+
+#!markdown
+
+### The new operator does several important things:
+
+- It first requests an address in the computer's memory large enough to store a new object based on the Random class.
+- It creates the new object, and stores it at the memory address.
+- It returns the memory address so that it can be saved in the dice object.
+
+From that point on, when the dice object is referenced in code, the .NET Runtime performs a lookup behind the scenes to give the illusion that you're working directly with the object itself.
+
+Your code uses the dice object like a variable that stores the state of the Random class. When you call the Next() method on the dice object, the method uses the state stored in the dice object to generate a random number.
+
+The latest version of the .NET Runtime enables you to instantiate an object without having to repeat the type name (target-typed constructor invocation). For example, the following code will create a new instance of the Random class:
+
+#!csharp
+
+Random dice = new();
+
+#!markdown
+
+## Why is the `Next()` Method Stateful?
+
+You might wonder why the `Next()` method is stateful. Couldn’t the .NET Class Library designers create a random number without requiring state? And what exactly is stored or referenced by `Next()`?
+
+### The Reason Behind the Design
+Computers are designed to follow precise instructions and create repeatable outcomes. To mimic randomness, the `Next()` method uses the date and time down to a fraction of a millisecond as a seed for an algorithm. While the result isn't truly random, it’s unpredictable enough for most applications.
+
+### What is Stored?
+The **seed value** is the state stored and maintained by the `Random` object. Every time you call the `Next()` method, the algorithm runs again, ensuring the seed changes so the same number isn’t always returned.
+
+### Key Takeaway
+To use the `Random.Next()` method, you don’t need to know how it works. Just remember that **some methods require creating an instance of a class**, like `Random`, while others don't.
+
+#!markdown
+
+One approach for determining whether a method is stateful or stateless is to consult the documentation. The documentation includes examples that show whether the method must be called from the object instance or directly from the class.
+
+As an alternative to searching through product documentation, you can attempt to access the method directly from the class itself. If it works, you know that it's a stateless method. The worst that can happen is that you'll get a compilation error.
+
+#!csharp
+
+int result = Random.Next();
+
+#!markdown
+
+Notice that a red squiggly line appears under Random.Next, indicating that you have a compilation error.
+
+If the method that you're interested in using is stateless, no red squiggly line will appear.
+
+`(1,14): error CS0120: An object reference is required for the non-static field, method, or property 'Random.Next()'`
+
+As you saw in the code at the beginning of the unit, you can fix this error by creating an instance of the Random class before accessing the Next() method. For example:
+
+#!csharp
+
+Random dice = new Random();
+int roll = dice.Next();
+
+#!markdown
+
+In this case, the Next() method is called without input parameters.

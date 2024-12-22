@@ -1,0 +1,36 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### Convert Fahrenheit to Celsius
+Calculate Celsius given the current temperature in Fahrenheit
+
+#!csharp
+
+int fahrenheit = 94;
+
+#!markdown
+
+Challenge:
+
+1. To convert temperatures in degrees Fahrenheit to Celsius, first subtract 32, then multiply by five ninths (5 / 9).
+2. Display the result of the temperature conversion in a formatted message
+3. When you're finished, the message should resemble the following output.
+
+> The temperature is 34.444444444444444444444444447 Celsius.
+
+#!markdown
+
+The following code is one possible solution for the challenge from the previous unit:
+
+#!csharp
+
+int fahrenheit = 94;
+decimal celsius = (fahrenheit - 32m) * (5m / 9m);
+Console.WriteLine("The temperature is " + celsius + " Celsius.");
+
+#!markdown
+
+This code is "one possible solution" among many possible solutions.

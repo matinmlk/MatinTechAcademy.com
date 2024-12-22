@@ -1,0 +1,102 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### What is string interpolation?
+
+String interpolation combines multiple values into a single literal string by using a "template" and one or more interpolation expressions. An interpolation expression is indicated by an opening and closing curly brace symbol `{ }`. You can put any C# expression that returns a value inside the braces. The literal string becomes a template when it's prefixed by the $ character.
+
+#!csharp
+
+string firstName = "Bob";
+string greeting = "Hello";
+string message = greeting + " " + firstName + "!";
+Console.Write(message);
+
+#!markdown
+
+You can write this more concise line of code instead:
+
+#!csharp
+
+string message = $"{greeting} {firstName}!";
+Console.Write(message);
+
+#!markdown
+
+In this simple example, you save a few keystrokes. You can imagine how much more concise string interpolation can be in more complex operations. Moreover, many find the string interpolation syntax cleaner and easier to read.
+
+### Use string interpolation to combine a literal string and a variable value
+
+To interpolate two strings together, you create a literal string and prefix the string with the $ symbol. The literal string should contain at least one set of curly braces {} and inside of those characters you use the name of a variable.
+
+#!csharp
+
+string firstName = "Bob";
+string message = $"Hello {firstName}!";
+Console.WriteLine(message);
+
+#!markdown
+
+You can perform several interpolation operations in the same line of code.
+
+#!csharp
+
+int version = 11;
+string updateText = "Update to Windows";
+string message = $"{updateText} {version}";
+Console.WriteLine(message);
+
+#!markdown
+
+### Avoid intermediate variables
+Just as you did in the previous exercise, you can eliminate the temporary variable to store the message.
+
+#!csharp
+
+int version = 11;
+string updateText = "Update to Windows";
+Console.WriteLine($"{updateText} {version}!");
+
+#!markdown
+
+### Combine verbatim literals and string interpolation
+
+In this example, the `$` symbol allows you to reference the projectName variable inside the braces, while the `@` symbol allows you to use the unescaped `\` character.
+
+#!csharp
+
+string projectName = "First-Project";
+Console.WriteLine($@"C:\Output\{projectName}\Data");
+
+#!markdown
+
+How can we use our learning materials so far and generate below text using only two `Console.WriteLine()` methods and below variables?
+
+```c#
+string projectName = "ACME";
+
+string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
+```
+
+```console
+View English output:
+       c:\Exercise\ACME\data.txt
+
+Посмотреть русский вывод:
+       c:\Exercise\ACME\ru-RU\data.txt
+```
+
+Try first and then check one of the possible answers below:
+
+#!csharp
+
+string projectName = "ACME";
+string englishLocation = $@"c:\Exercise\{projectName}\data.txt";
+Console.WriteLine($"View English output:\n\t\t{englishLocation}\n");
+
+string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
+string russianLocation = $@"c:\Exercise\{projectName}\ru-RU\data.txt";
+Console.WriteLine($"{russianMessage}:\n\t\t{russianLocation}\n");

@@ -1,0 +1,160 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### Character escape sequences
+
+An escape character sequence is an instruction to the runtime to insert a special character that will affect the output of your string. In C#, the escape character sequence begins with a backslash \ followed by the character you're escaping. For example, the \n sequence will add a new line, and a \t sequence will add a tab.
+
+The following code uses escape character sequences to add newlines and tabs:
+
+#!csharp
+
+Console.WriteLine("Hello\nWorld!");
+Console.WriteLine("Hello\tWorld!");
+
+#!markdown
+
+What if you need to insert a double-quotation mark in a literal string? If you don't use the character escape sequence, you'll confuse the compiler because it will think you want to terminate the string prematurely. The compiler won't understand the purpose of the characters after the second double-quotation mark.
+
+#!csharp
+
+Console.WriteLine("Hello "World"!");
+
+#!markdown
+
+The .NET Editor will put a red squiggly line under World. But if you attempt to run the code anyway, you would see the following output:
+>(1,27): error CS1003: Syntax error, ',' expected <br />
+>(1,27): error CS0103: The name 'World' does not exist in the current context <br />
+>(1,32): error CS1003: Syntax error, ',' expected
+
+#!markdown
+
+To handle that situation, use the \" escape sequence:
+
+#!csharp
+
+Console.WriteLine("Hello \"World\"!");
+
+#!markdown
+
+What if you need to use the backslash for other purposes, like to display a file path?
+
+```c#
+Console.WriteLine("c:\source\repos");
+```
+
+Unfortunately, C# reserves the backslash for escape sequences, so if you run the code, the compiler will display the following error:
+
+#!csharp
+
+Console.WriteLine("c:\source\repos");
+
+#!markdown
+
+> (1,22): error CS1009: Unrecognized escape sequence
+
+The problem is the sequence \s. The \r doesn't produce an error because it's a valid escape sequence for a carriage return. However, you don't want to use a carriage return in this context.
+
+To solve this problem, you use the \\ to display a single backslash.
+
+#!csharp
+
+Console.WriteLine("c:\\source\\repos");
+
+#!markdown
+
+### Format output using character escape sequences
+
+To create the mockup of the command line tool, enter the following code in the editor:
+
+#!csharp
+
+Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ... \n");
+Console.WriteLine("Invoice: 1021\t\tComplete!");
+Console.WriteLine("Invoice: 1022\t\tComplete!");
+Console.WriteLine("\nOutput Directory:\t");
+
+#!markdown
+
+### Verbatim string literal
+
+A verbatim string literal will keep all whitespace and characters without the need to escape the backslash. To create a verbatim string, use the @ directive before the literal string.
+
+#!csharp
+
+Console.WriteLine(@"    c:\source\repos    
+        (this is where your code goes)");
+
+#!markdown
+
+### Format output using verbatim string literals
+
+#!csharp
+
+Console.Write(@"c:\invoices");
+
+#!markdown
+
+### Unicode escape characters
+
+You can also add encoded characters in literal strings using the \u escape sequence, then a four-character code representing some character in Unicode (UTF-16).
+
+#!csharp
+
+// Kon'nichiwa World
+Console.WriteLine("\u3053\u3093\u306B\u3061\u306F World!");
+
+#!markdown
+
+Or you can draw a rectangle using code below:
+
+#!csharp
+
+Console.WriteLine("\u250C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510");
+Console.WriteLine("\u2502              \u2502");
+Console.WriteLine("\u2502              \u2502");
+Console.WriteLine("\u2502              \u2502");
+Console.WriteLine("\u2502              \u2502");
+Console.WriteLine("\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518");
+
+#!markdown
+
+#### Explanation of the C# Code Using Unicode for Box-Drawing Characters
+
+In the provided C# code, Unicode escape sequences are used to draw a rectangle with borders. Each box-drawing character is represented by its Unicode number.
+
+#### Unicode Characters Used:
+
+- **\u250C**: Represents the top-left corner (`┌`).
+- **\u2510**: Represents the top-right corner (`┐`).
+- **\u2514**: Represents the bottom-left corner (`└`).
+- **\u2518**: Represents the bottom-right corner (`┘`).
+- **\u2500**: Represents the horizontal line (`─`).
+- **\u2502**: Represents the vertical line (`│`).
+
+#### Output:
+This code generates the following rectangle with borders:
+
+```plaintext
+┌───────────────┐
+│               │
+│               │
+│               │
+│               │
+└───────────────┘
+```
+
+#!markdown
+
+### Format output using unicode escape characters
+
+#!csharp
+
+// To generate Japanese invoices:
+// Nihon no seikyū-sho o seisei suru ni wa:
+Console.Write("\n\n\u65e5\u672c\u306e\u8acb\u6c42\u66f8\u3092\u751f\u6210\u3059\u308b\u306b\u306f\uff1a\n\t");
+// User command to run an application
+Console.WriteLine(@"c:\invoices\app.exe -j");
