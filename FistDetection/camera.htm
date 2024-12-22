@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hand Gesture Detection</title>
+<style>
+  video, canvas {
+    width: 640px;
+    height: 480px;
+  }
+</style>
+</head>
+<body>
+  <h1>Hand Gesture Detection with MediaPipe</h1>
+  <video class="input_video" autoplay></video>
+  <canvas class="output_canvas"></canvas>
+  <p id="status">Loading...</p>
+
+  <!-- MediaPipe Hands and its dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  
+  <script>
+    const videoElement = document.getElementsByClassName('input_video')[0];
+    const canvasElement = document.getElementsByClassName('output_canvas')[0];
+    const canvasCtx = canvasElement.getContext('2d');
+    const statusElement = document.getElementById('status');
+
+    // Initialize Hands
+    const hands = new Hands({
+      locateFile: (file) => {
+        return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+      }
+    });
+    
+    hands.setOptions({
+      maxNumHands: 2,  // detect up to two hands
+      modelComplexity: 1,
+      minDetectionConfidence: 0.5,
+      minTrackingConfidence: 0.5
+    });
+
+    hands.onResults(onResults);
+
+    // Use the MediaPipe camera helper
+    const camera = new Camera(videoElement, {
+      onFrame: async () => {
+        await hands.send({image: videoElement});
+      },
+      width: 640,
+      height: 480
+    });
+    camera.start();
+
+    function onResults(results) {
+      canvasCtx.save();
+      canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+      canvasCtx.drawImage(
+          results.image, 0, 0, canvasElement.width, canvasElement.height);
+
+      if (results.multiHandLandmarks && results.multiHandedness) {
+        // Draw landmarks
+        for (let i = 0; i < results.multiHandLandmarks.length; i++) {
+          const landmarks = results.multiHandLandmarks[i];
+          drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS,
+                         {color: '#00FF00', lineWidth: 4});
+          drawLandmarks(canvasCtx, landmarks, {color: '#FF0000', lineWidth: 2});
+        }
+
+        // If you want to detect a certain gesture, analyze the landmark positions.
+        // For example, counting fingers:
+        const handCount = results.multiHandLandmarks.length;
+        statusElement.textContent = `Detected ${handCount} hand(s).`;
+        
+        // You can add more logic here for gestures:
+        // For example, check if index finger tip is above middle finger tip, etc.
+      } else {
+        statusElement.textContent = "No hands detected.";
+      }
+      canvasCtx.restore();
+    }
+  </script>
+</body>
+</html>
